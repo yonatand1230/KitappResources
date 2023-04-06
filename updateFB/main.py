@@ -13,7 +13,7 @@ fb = firebase.FirebaseApplication(fbUrl, None)
 
 # Read Remote .JSON
 print('reading json...')
-jsonUrl = 'https://raw.githubusercontent.com/yonatand1230/Script247_PublicFlies/main/halachot.json'
+jsonUrl = 'https://raw.githubusercontent.com/yonatand1230/KitappResources/master/updateFB/halachot.json'
 response = urlopen(jsonUrl)
 halachot = json.loads(response.read())
 

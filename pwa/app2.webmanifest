@@ -1,0 +1,14 @@
+{
+  "name": "כיתפליקציה",
+  "short_name": "כיתפליקציה",
+  
+  "display": "standalone",
+  
+  "icon": [
+    {
+      "src": "h6gbs/LogoV2.png",
+      "sizes": "800x800",
+      "type": "image/png"
+    }
+   ]
+}

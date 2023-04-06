@@ -1,0 +1,24 @@
+<html lang="en">
+
+<title>Kitapplication</title>
+<link rel="manifest" href="/h6gbs/app2.webmanifest">
+<link rel="apple-touch-icon" href="/h6gbs/LogoV2.png">
+
+
+
+<h1 dir="rtl" style="text-align:center; font-size: 90px;">ברוכים הבאים!</h1>
+<h1 dir="rtl" style="font-size: 90px;"><span id="ttt"></h1>
+
+<script> `use strict`;
+function refreshTime() {
+  const timeDisplay = document.getElementById("ttt");
+  const dateString = new Date().toLocaleString();
+  const formattedString = dateString.replace(", ", " - ");
+  timeDisplay.textContent = formattedString;
+}
+  setInterval(refreshTime, 1000);
+</script>
+
+
+
+</html>

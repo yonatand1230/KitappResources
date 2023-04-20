@@ -7,7 +7,7 @@ Simply an error page for the website.
 + PNG picture with info about the error.
 + HTML file displaying the picture.
 
-###‎
+###  
 
 ## PWA
 Passive-Web-App template.

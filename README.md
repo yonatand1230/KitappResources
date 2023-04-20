@@ -10,7 +10,7 @@ Simply an error page for the website.
 
   
   
-## PWA
+## Kitapp PWA
 Passive-Web-App template.
 Will be used as an iOS alternative for Kitapp.
 

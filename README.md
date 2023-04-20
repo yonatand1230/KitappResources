@@ -7,8 +7,8 @@ Simply an error page for the website.
 + PNG picture with info about the error.
 + HTML file displaying the picture.
 
-###  
-
+  
+  
 ## PWA
 Passive-Web-App template.
 Will be used as an iOS alternative for Kitapp.

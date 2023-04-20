@@ -17,8 +17,8 @@ Will be used as an iOS alternative for Kitapp.
 + HTML file w/ PyScript - main page.
 + Manifest (.webmanifest) file - for the website to be recognized as a PWA.
 
-###
-
+  
+  
 ## FireBase Updater
 Used to automatically update Firebase's Real-Time Database with new Halacha Yomit every day.
 
@@ -26,12 +26,12 @@ Used to automatically update Firebase's Real-Time Database with new Halacha Yomi
 + Python script that connects to Firebase's API and updates current Halacha. Should be run automatically, scheduled to the same hour every day. 
 + JSON file containing Halachot for every date.
 
-###
-
+  
+  
 ## Zoom Scheduler (Outdated)
 Used to automatically open zoom links at the correct hour. 
 
-###
-
+  
+  
 ## Kitapp Emulator (Outdated)
 Web-based Android emulator to run Kitapp on devices that are not supported. Uses appetize.io.

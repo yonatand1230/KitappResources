@@ -2,12 +2,14 @@ from urllib import response
 from firebase import firebase
 from datetime import date
 from datetime import datetime
-import json, requests
+from dotenv import load_dotenv
 from urllib.request import urlopen
+import json, requests, os
  
+load_dotenv() # init dotenv to use .env files
 
-# Constant FireBase URL
-fbUrl = 'https://grade-6-app-37519-default-rtdb.europe-west1.firebasedatabase.app/'
+# define Firebase URL
+fbUrl = os.getenv("fbUrl") # need to configure an .env file with the FB url
 fb = firebase.FirebaseApplication(fbUrl, None)
 
 
@@ -37,4 +39,3 @@ upload = {
 result = fb.patch('', upload)
 print(result)
 print('uploaded!')
-#input()

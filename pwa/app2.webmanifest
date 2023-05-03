@@ -9,6 +9,11 @@
       "src": "https://raw.githubusercontent.com/yonatand1230/KitappResources/master/pwa/LogoV2.png",
       "sizes": "800x800",
       "type": "image/png"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/yonatand1230/KitappResources/master/pwa/LogoV2_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
     }
    ]
 }

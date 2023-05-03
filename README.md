@@ -26,6 +26,7 @@ Used to automatically update Firebase's Real-Time Database with new Halacha Yomi
 ### Built from:
 + Python script that connects to Firebase's API and updates current Halacha. Should be run automatically, scheduled to the same hour every day. 
 + JSON file containing Halachot for every date.
++ .env file containing the Firebase URL.
 
   
   

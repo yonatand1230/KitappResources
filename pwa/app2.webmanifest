@@ -1,7 +1,7 @@
 {
   "name": "כיתפליקציה",
   "short_name": "כיתפליקציה",
-  "start_url":"/",
+  "start_url":"/KitappResources/pwa/",
   "display": "standalone",
   
   "icon": [

@@ -6,7 +6,7 @@
   
   "icon": [
     {
-      "src": "h6gbs/LogoV2.png",
+      "src": "/LogoV2.png",
       "sizes": "800x800",
       "type": "image/png"
     }

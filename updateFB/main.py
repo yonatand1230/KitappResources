@@ -2,9 +2,9 @@ from urllib import response
 from firebase import firebase
 from datetime import date
 from datetime import datetime
-import json
+import json, requests
 from urllib.request import urlopen
-import requests
+ 
 
 # Constant FireBase URL
 fbUrl = 'https://grade-6-app-37519-default-rtdb.europe-west1.firebasedatabase.app/'

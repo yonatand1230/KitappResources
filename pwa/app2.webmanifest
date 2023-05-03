@@ -1,7 +1,7 @@
 {
   "name": "כיתפליקציה",
   "short_name": "כיתפליקציה",
-  
+  "start_url":"/",
   "display": "standalone",
   
   "icon": [

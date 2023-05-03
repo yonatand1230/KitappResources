@@ -6,7 +6,7 @@
   
   "icon": [
     {
-      "src": "/LogoV2.png",
+      "src": "/KitappResources/LogoV2.png",
       "sizes": "800x800",
       "type": "image/png"
     }

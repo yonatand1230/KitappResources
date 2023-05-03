@@ -6,7 +6,7 @@
   
   "icon": [
     {
-      "src": "/KitappResources/pwa/LogoV2.png",
+      "src": "https://raw.githubusercontent.com/yonatand1230/KitappResources/master/pwa/LogoV2.png",
       "sizes": "800x800",
       "type": "image/png"
     }

@@ -1,9 +1,10 @@
 {
+	"url":"SHACHAF_URL_HERE",
 	"headers": {
-	  "accept": "",
-    "content-type": "",
-    "cookie": "",
-    "Referer": ""
+		"accept": "",
+		"content-type": "",
+		"cookie": "",
+		"Referer": ""
 	},
 	"data": "YOUR_DATA_HERE"
 }

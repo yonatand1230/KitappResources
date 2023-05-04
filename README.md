@@ -13,6 +13,7 @@ Simply an error page for the website.
 ## Kitapp PWA
 Passive-Web-App template.
 Will be used as an iOS alternative for Kitapp.
+Will move to Firebase servers in the future.
 
 ### Built from:
 + HTML file w/ PyScript - main page.

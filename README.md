@@ -1,6 +1,15 @@
-# **Resources for** [**Kitapp**](https://play.google.com/store/apps/details?id=com.gurfi.GradeApp) **&** [**~~Kita Website~~**](https://sites.google.com/view/kita-g6)
+# **Backend Resources for** [**Kitapp**](https://play.google.com/store/apps/details?id=com.gurfi.GradeApp) **&** [**~~Kita Website~~**](https://sites.google.com/view/kita-g6)
   
+## Shachaf API:
+Get holidays and schedule changes from shachaf as a JSON object.
 
+### Built from:
++ shachaf python module - gets changes/holidays from shachaf's HTML as a Python dict
++ main python script - gets changes and holidays using shachaf
++ changes.json - a JSON file containing the changes and holidays from shachaf
+
+  
+  
 ## Error Page:
 Simply an error page for the website.
 

@@ -72,7 +72,7 @@ def get_changes(html):
         for c in cells:
             tr = c.find('tr')
             if tr != None:
-                finalChange = tr.find('td').get_text() # CHANGE
+                finalChange = tr.find('td').get_text(separator='\n') # CHANGE
                 finalHour = hour_text # HOUR
                 finalDay = cells.index(c) # DAY
                 myChange = {'day':finalDay, 'hour':finalHour, 'body':finalChange}

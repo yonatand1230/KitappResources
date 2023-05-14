@@ -5,8 +5,8 @@ Get holidays and schedule changes from shachaf as a JSON object.
 
 ### Built from:
 + shachaf python module - gets changes/holidays from shachaf's HTML as a Python dict
-+ main python script - gets changes and holidays using shachaf
-+ changes.json - a JSON file containing the changes and holidays from shachaf
++ main python script - gets changes and holidays using shachaf, writes info to a JSON file
++ changes.json - a JSON file containing the changes and holidays from shachaf as an object
 
   
   
@@ -21,8 +21,7 @@ Simply an error page for the website.
   
 ## Kitapp PWA
 Passive-Web-App template.
-Will be used as an iOS alternative for Kitapp.
-Will move to Firebase servers in the future.
+Will be used as an iOS alternative for Kitapp, will possibly move to Firebase servers in the future.
 
 ### Built from:
 + HTML file w/ PyScript - main page.

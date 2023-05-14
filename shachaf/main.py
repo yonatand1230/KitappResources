@@ -9,30 +9,97 @@ from clipboard import copy
 driver = webdriver.Chrome('chromedriver.exe')
 url = "https://yba-gs.iscool.co.il/default.aspx"
 driver.get(url)
-time.sleep(1)
 
-# select class
+# wait for the page to load
+is_document_ready = driver.execute_script("return document.readyState === 'complete';")
+while not is_document_ready:
+    is_document_ready = driver.execute_script("return document.readyState === 'complete';")
+
+# select grade
 dropdown = driver.find_element(By.ID, 'dnn_ctr30678_TimeTableView_ClassesList')
 select = Select(dropdown)
-select.select_by_visible_text('י - 1')
 
-# select schedule
-btn = driver.find_element(By.ID, "dnn_ctr30678_TimeTableView_btnChangesTable")
-btn.click()
-time.sleep(1)
+final = {} # init dict for final changes
 
-# get page html
-html = driver.page_source
+options = select.options
+x=1
+for i in range(18, 24): # loop through yud 1 - yud 6
+    ## STEP 1: GET PAGE HTML ##
+    # select grade
+    print("finding dropdown...")
+    dropdown = driver.find_element(By.ID, 'dnn_ctr30678_TimeTableView_ClassesList') # find dropdown
+    select = Select(dropdown)
+    options = select.options # refresh options
+    
+    current_value = options[i].get_attribute('value')
+    select.select_by_value(current_value)
+    print("Grade selected! value=" + str(current_value)) #+ " text=" + options[i].get_attribute('text'))
+    
+    # select schedule
+    print("opening schedule...")
+    btn = driver.find_element(By.ID, "dnn_ctr30678_TimeTableView_btnChangesTable")
+    btn.click()
+    
+    # wait for the page to load
+    print("waiting for the page to load...")
+    is_document_ready = driver.execute_script("return document.readyState === 'complete';")
+    while not is_document_ready:
+        is_document_ready = driver.execute_script("return document.readyState === 'complete';")
+    print("page loaded!")
+    
+    # get page html
+    print("Getting driver's html...")
+    html = driver.page_source
+    
+    # need to rewrite this section - to make sure the page loaded correctly.
+    """ 
+    # make sure the page loaded correctly
+    while 'Too many requests' in driver.page_source:
+        print("too many requests. waiting for reload")
+        time.sleep(20) # wait the appropriate time for the server to allow more requests
+        print("reloading...")
+        driver.refresh() # reload
+        if not 'Too many requests' in driver.page_source:
+            print("loaded correctly!")
+            html = driver.page_source 
+            print(html)
+            dropdown = driver.find_element(By.ID, 'dnn_ctr30678_TimeTableView_ClassesList') # find dropdown
+            select = Select(dropdown) # init dropdown
+            options = select.options # get options
+            current_value = options[i].get_attribute('value') # check for the desired grade
+            select.select_by_value(current_value) # select the wanted option
+            
+            btn = driver.find_element(By.ID, "dnn_ctr30678_TimeTableView_btnChangesTable")
+            btn.click()
+    """    
+    
+    ## STEP 2: GET CHANGES+HOLIDAYS FROM HTML ##     
+    print("finding changes and holidays...")
+    holidays = shachaf.get_holidays(html)
+    changes = shachaf.get_changes(html)
 
-# get changes+holidays as dict using shachaf api
-holidays = shachaf.get_holidays(html)
-changes = shachaf.get_changes(html)
-
-# dump all info into a json file
-final = {
-    'holidays': holidays,
-    'changes': changes
-    }
-
-with open('changes.json', 'w') as f:
+    # get current grade again (Refresh options)
+    print("finding dropdown...")
+    dropdown = driver.find_element(By.ID, 'dnn_ctr30678_TimeTableView_ClassesList')
+    select = Select(dropdown)
+    
+    print("refreshing options...")
+    options = select.options # refresh options
+    current_grade = options[i].get_attribute('text')
+    
+    # add all of the info to the final dict
+    print("updating dict for grade: " + current_grade)
+    final.update({
+        current_grade: {
+        'holidays': holidays,
+        'changes': changes
+        }
+        })
+    if current_value == 35:
+        time.sleep(20)
+    print("\n\n") # a few blank lines before the next grade
+    
+# dump all info into changes.json file
+print("writing json...")
+with open(r'changes.json', 'w') as f:
     f.write(json.dumps(final))

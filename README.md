@@ -1,4 +1,4 @@
-# **Backend Resources for** [**Kitapp**](https://play.google.com/store/apps/details?id=com.gurfi.GradeApp) **&** [**~~Kita Website~~**](https://sites.google.com/view/kita-g6)
+# **Backend Scripts for** [**Kitapp**](https://play.google.com/store/apps/details?id=com.gurfi.GradeApp) **&** [**~~Kita Website~~**](https://sites.google.com/view/kita-g6)
   
 ## Shachaf API:
 Get holidays and schedule changes from shachaf as a JSON object.
@@ -36,13 +36,3 @@ Used to automatically update Firebase's Real-Time Database with new Halacha Yomi
 + Python script that connects to Firebase's API and updates current Halacha. Should be run automatically, scheduled to the same hour every day. 
 + JSON file containing Halachot for every date.
 + .env file containing the Firebase URL.
-
-  
-  
-## Zoom Scheduler (Outdated)
-Used to automatically open zoom links at the correct hour. 
-
-  
-  
-## Kitapp Emulator (Outdated)
-Web-based Android emulator to run Kitapp on devices that are not supported. Uses appetize.io.

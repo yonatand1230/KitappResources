@@ -70,12 +70,19 @@ def get_changes(html):
         cells = hour.find_all('td', {'class':'TTCell'}) # cells for current hour
         #print(cells)
         for c in cells:
-            tr = c.find('tr')
-            if tr != None:
-                finalChange = tr.find('td').get_text(separator='\n') # CHANGE
+            tr = c.find_all('tr')
+            if len(tr) != 0:
+                if len(tr) == 1:
+                    finalChange = tr[0].find('td').get_text(separator='\n') # CHANGE - string
+                elif len(tr)>1:
+                    finalChange=[]
+                    for i in tr:
+                        one_change = i.find('td').get_text(separator='\n') # only one change - string
+                        finalChange.append(one_change)
                 finalHour = hour_text # HOUR
                 finalDay = cells.index(c) # DAY
                 myChange = {'day':finalDay, 'hour':finalHour, 'body':finalChange}
                 all_changes.append(myChange)
+            
     return all_changes
 

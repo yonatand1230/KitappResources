@@ -4,6 +4,18 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 from clipboard import copy
 
+def sort(lst):
+    final = {}
+
+    for d in lst:
+        day_number = d.get("day")
+        hour = d.get("hour")
+        body = d.get("body")
+        if day_number not in final:
+            final[day_number] = {}
+        final[day_number][hour] = body
+    return final
+
 
 # init selenium
 driver = webdriver.Chrome('chromedriver.exe')
@@ -99,7 +111,18 @@ for i in range(18, 24): # loop through yud 1 - yud 6
         time.sleep(20)
     print("\n\n") # a few blank lines before the next grade
     
+# convert list of changes to a dict 
+print("sorting dict...")
+for i in list(final):
+    changes = final[i]['changes'] # list of changes
+    new_changes = sort(changes)
+    final[i]['changes'] = new_changes
+
+
 # dump all info into changes.json file
-print("writing json...")
-with open(r'changes.json', 'w') as f:
-    f.write(json.dumps(final))
+print("converting to json object...")
+j = json.dumps(final, ensure_ascii=False)
+
+print("writing to file...")
+with open(r'changes.json', 'w', encoding="utf-8") as f:
+    f.write(j)

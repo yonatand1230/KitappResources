@@ -1,8 +1,9 @@
-import shachaf, time, json
+import time, json
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 from clipboard import copy
+from shachaf import Shachaf
 
 def sort(lst):
     final = {}
@@ -87,8 +88,8 @@ for i in range(18, 24): # loop through yud 1 - yud 6
     
     ## STEP 2: GET CHANGES+HOLIDAYS FROM HTML ##     
     print("finding changes and holidays...")
-    holidays = shachaf.get_holidays(html)
-    changes = shachaf.get_changes(html)
+    holidays = Shachaf.get_holidays(html)
+    changes = Shachaf.get_changes(html)
 
     # get current grade again (Refresh options)
     print("finding dropdown...")
@@ -99,6 +100,12 @@ for i in range(18, 24): # loop through yud 1 - yud 6
     options = select.options # refresh options
     current_grade = options[i].get_attribute('text')
     
+    # replace grade name:
+    shichva = current_grade[0]
+    mispar_kita = current_grade[-1]
+    
+    current_grade = "כיתה " + shichva + "'" + mispar_kita
+    
     # add all of the info to the final dict
     print("updating dict for grade: " + current_grade)
     final.update({
@@ -107,8 +114,8 @@ for i in range(18, 24): # loop through yud 1 - yud 6
         'changes': changes
         }
         })
-    if current_value == 35:
-        time.sleep(20)
+    #if current_value == 35:
+    time.sleep(3)
     print("\n\n") # a few blank lines before the next grade
     
 # convert list of changes to a dict 
@@ -121,7 +128,7 @@ for i in list(final):
 
 # dump all info into changes.json file
 print("converting to json object...")
-j = json.dumps(final, ensure_ascii=False)
+j = json.dumps(final, ensure_ascii=False, indent=2)
 
 print("writing to file...")
 with open(r'changes.json', 'w', encoding="utf-8") as f:

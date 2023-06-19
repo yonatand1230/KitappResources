@@ -137,4 +137,4 @@ with open(r'changes.json', 'w', encoding="utf-8") as f:
     f.write(j)
 
 print("commiting to github repo...")
-os.system(r'D:\commit.bat')
+os.system('commit.bat')

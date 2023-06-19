@@ -35,7 +35,6 @@ select = Select(dropdown)
 final = {} # init dict for final changes
 
 options = select.options
-x=1
 for i in range(len(options)): # loop through all of the classes
     print(i)
     ## STEP 1: GET PAGE HTML ##
@@ -50,9 +49,10 @@ for i in range(len(options)): # loop through all of the classes
     print("Grade selected! value=" + str(current_value)) #+ " text=" + options[i].get_attribute('text'))
     
     # select schedule
-    print("opening schedule...")
-    btn = driver.find_element(By.ID, "dnn_ctr30678_TimeTableView_btnChangesTable")
-    btn.click()
+    if i==0:
+        print("opening schedule...")
+        btn = driver.find_element(By.ID, "dnn_ctr30678_TimeTableView_btnChangesTable")
+        btn.click()
     
     # wait for the page to load
     print("waiting for the page to load...")
@@ -117,8 +117,7 @@ for i in range(len(options)): # loop through all of the classes
         'changes': changes
         }
         })
-    #if current_value == 35:
-    time.sleep(3)
+    #time.sleep(2.5)
     print("\n\n") # a few blank lines before the next grade
     
 # convert list of changes to a dict 

@@ -19,7 +19,7 @@ def sort(lst):
 
 
 # init selenium
-driver = webdriver.Chrome('chromedriver.exe')
+driver = webdriver.Chrome()
 url = "https://yba-gs.iscool.co.il/default.aspx"
 driver.get(url)
 
@@ -36,7 +36,8 @@ final = {} # init dict for final changes
 
 options = select.options
 x=1
-for i in range(18, 24): # loop through yud 1 - yud 6
+for i in range(len(options)): # loop through all of the classes
+    print(i)
     ## STEP 1: GET PAGE HTML ##
     # select grade
     print("finding dropdown...")
@@ -102,6 +103,8 @@ for i in range(18, 24): # loop through yud 1 - yud 6
     
     # replace grade name:
     shichva = current_grade[0]
+    if current_grade[1] == 'א' or current_grade[1] == 'ב':
+        shichva += current_grade[1]
     mispar_kita = current_grade[-1]
     
     current_grade = "כיתה " + shichva + "'" + mispar_kita

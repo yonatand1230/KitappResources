@@ -1,4 +1,4 @@
-import time, json
+import time, json, os
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
@@ -135,3 +135,6 @@ j = json.dumps(final, ensure_ascii=False, indent=2)
 print("writing to file...")
 with open(r'changes.json', 'w', encoding="utf-8") as f:
     f.write(j)
+
+print("commiting to github repo...")
+os.system(r'D:\commit.bat')

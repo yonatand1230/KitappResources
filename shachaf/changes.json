@@ -7,7 +7,7 @@
     },
     "changes": {
       "1": {
-        "08:45": "פעילות הכנה לחופש&&TableEventChange",
+        "08:45": ["פעילות הכנה לחופש&&TableEventChange","Test"],
         "09:35": "פעילות הכנה לחופש&&TableEventChange",
         "14:40": "שחרור מוקדם  - הביתה&&TableEventChange",
         "15:50": "שחרור מוקדם  - הביתה&&TableEventChange",

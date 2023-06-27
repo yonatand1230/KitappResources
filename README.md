@@ -1,5 +1,9 @@
 # **Backend Scripts for** [**Kitapp**](https://play.google.com/store/apps/details?id=com.gurfi.GradeApp) **&** [**~~Kita Website~~**](https://sites.google.com/view/kita-g6)
-  
+
+Individual scripts to handle and update the Kitapp backend. \
+An AIO program can be found in [yonatand1230/KitappUpdater](https://github.com/yonatand1230/KitappUpdater). 
+The program uses all of the scripts here and creates an all-in-one, more comfortable environment to maintain the backend and keep the app working.
+
 ## Shachaf API:
 Get holidays and schedule changes from shachaf as a JSON object.
 

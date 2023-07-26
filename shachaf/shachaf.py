@@ -87,3 +87,46 @@ class Shachaf:
                 
         return all_changes
 
+    def get_schedule(html):
+        schedule = []
+        page = bs4.BeautifulSoup(html, features="lxml")
+        hours = page.find_all('tr', {'bgcolor':'#ffffff'}) # get list of all hours
+        hours.pop() # remove empty element
+
+        for hour in hours:
+            h_text = hour.find('span', {'class':'hour-time'})
+            if h_text != None:
+                hour_text = h_text.get_text()
+            cells = hour.find_all('td', {'class':'TTCell'})
+            if len(cells)>5: cells=cells[:5] # remove friday
+
+            for c in cells:
+                lsn = c.find('div')#, {'class':'TTLesson'})
+                if lsn != None:
+                    a = lsn.get_text(separator='\n')
+                    if a != '' and a != None:
+                        l = a.splitlines()
+                        lsn_name = l[0].replace('/','').strip()
+                        lsn_room = l[1].strip() if len(l)>=2 else ''
+                        lsn_tchr = l[2].strip() if len(l)>=3 else ''
+                        lsn_day = cells.index(c)
+                        lsn_hour = hour_text
+
+                        # clear room name:
+                        if lsn_room != '':
+                            if lsn_room[0] == '(' or lsn_room[0] == ')':
+                                lsn_room = lsn_room[1:]
+                            if lsn_room[-1] == '(' or lsn_room[-1] == ')':
+                                lsn_room = lsn_room[:-1]
+
+                        lsn = {
+                            'name': lsn_name,
+                            'room': lsn_room,
+                            'teacher': lsn_tchr,
+                            'day': lsn_day,
+                            'hour': lsn_hour
+                        }
+                        print(lsn)
+                    schedule.append(lsn)
+        return schedule                
+                
